@@ -58,4 +58,12 @@ class ProductController extends Controller
             return view('products.edit', ['product' => $p]);
         }
     }
+
+    public function destroy($id) {
+        $p = Product::findOrFail($id);
+        $p->delete();
+
+        \Session::flash('status', 'Produto excluído com sucesso.');
+        return redirect('/products');
+    }
 }

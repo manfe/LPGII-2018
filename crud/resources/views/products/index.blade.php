@@ -33,6 +33,9 @@
                                 <td>
                                     <a href="/products/{{ $p->id }}/edit" class="btn btn-warning">Editar</a>
 
+                                    {!! Form::open(['url' => "/products/$p->id", 'method' => 'delete']) !!}
+                                        {{ Form::submit('Deletar', null, ['class' => 'btn btn-danger']) }}
+                                    {!! Form::close() !!}
                                 </td>
                             </tr>
                         @endforeach
