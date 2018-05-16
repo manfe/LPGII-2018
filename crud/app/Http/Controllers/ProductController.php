@@ -38,4 +38,24 @@ class ProductController extends Controller
             return view('products.new');
         }
     }
+
+    public function edit($id) {
+        $product = Product::findOrFail($id);
+
+        return view('products.edit', ['product' => $product]);
+    }
+
+    public function update(Request $request, $id) {
+        $p = Product::findOrFail($id);
+        $p->nome = $request->input('nome');
+        $p->valor = $request->input('valor');
+        
+        if ($p->save()) {
+            \Session::flash('status', 'Produto atualizado com sucesso.');
+            return redirect('/products');
+        } else {
+            \Session::flash('status', 'Ocorreu um erro ao atualizar o produto.');
+            return view('products.edit', ['product' => $p]);
+        }
+    }
 }

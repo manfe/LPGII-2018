@@ -16,15 +16,15 @@
                         </div>
                     @endif
 
-                    {!! Form::open(['url' => '/products', 'method' => 'post']) !!}
+                    {!! Form::open(['url' => "/products/$product->id", 'method' => 'put']) !!}
                         
                         {{ Form::label('nome', 'Nome') }}
-                        {{ Form::text('nome') }}
+                        {{ Form::text('nome', $product->nome) }}
 
                         <br /><br />
 
                         {{ Form::label('valor', 'Valor') }}
-                        {{ Form::text('valor') }}
+                        {{ Form::text('valor', $product->valor) }}
 
                         <br /><br />
 

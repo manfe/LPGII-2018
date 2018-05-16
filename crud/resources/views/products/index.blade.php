@@ -30,7 +30,10 @@
                                 <td>{{ $p->id }}</td>
                                 <td>{{ $p->nome }}</td>
                                 <td>{{ $p->valor }}</td>
-                                <td></td>
+                                <td>
+                                    <a href="/products/{{ $p->id }}/edit" class="btn btn-warning">Editar</a>
+
+                                </td>
                             </tr>
                         @endforeach
                     </table>
