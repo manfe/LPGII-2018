@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Reminder Language Lines
+    | Password Reset Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'password' => 'A senha deve possuir no mínimo 6 caracteres e ser igual à confirmação.',
+    'password' => 'A senha e a confirmação devem combinar e possuir pelo menos seis caracteres.',
     'reset' => 'Sua senha foi redefinida!',
-    'sent' => 'O link para redefinição de senha foi enviado para o seu e-mail!',
-    'token' => 'O token para recuperação de senha é inválido.',
-    'user' => 'Não encontramos nenhum usuário com esse endereço de e-mail.',
+    'sent' => 'Enviamos seu link de redefinição de senha por e-mail!',
+    'token' => 'Este token de redefinição de senha é inválido.',
+    'user' => "Não encontramos um usuário com esse endereço de e-mail.",
 
 ];

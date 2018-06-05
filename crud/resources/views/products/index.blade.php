@@ -17,29 +17,7 @@
                         </div>
                     @endif
 
-                    <table class="table">
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Valor</th>
-                            <th>Ações</th>
-                        </tr>
-                        
-                        @foreach($products as $p)
-                            <tr>
-                                <td>{{ $p->id }}</td>
-                                <td>{{ $p->nome }}</td>
-                                <td>{{ $p->valor }}</td>
-                                <td>
-                                    <a href="/products/{{ $p->id }}/edit" class="btn btn-warning">Editar</a>
-
-                                    {!! Form::open(['url' => "/products/$p->id", 'method' => 'delete']) !!}
-                                        {{ Form::submit('Deletar', null, ['class' => 'btn btn-danger']) }}
-                                    {!! Form::close() !!}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
+                    <product-index></product-index>
                 </div>
             </div>
         </div>
