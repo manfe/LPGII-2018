@@ -10440,3 +10440,7 @@ a.text-dark:focus {
   color: red !important;
 }
 
+.card {
+  width: 100%;
+}
+
