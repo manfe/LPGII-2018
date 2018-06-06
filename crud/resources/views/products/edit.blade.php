@@ -18,17 +18,25 @@
 
                     {!! Form::open(['url' => "/products/$product->id", 'method' => 'put']) !!}
                         
-                        {{ Form::label('nome', 'Nome') }}
-                        {{ Form::text('nome', $product->nome) }}
-
-                        <br /><br />
-
-                        {{ Form::label('valor', 'Valor') }}
-                        {{ Form::text('valor', $product->valor) }}
-
-                        <br /><br />
-
-                        {{ Form::submit('Salvar') }}
+                    <div class="form-group row">
+                            {{ Form::label('nome', 'Nome', ['class' => 'col-sm-2 col-form-label']) }}
+                            <div class="col-sm-10">
+                                {{ Form::text('nome', $product->nome, ['class' => 'form-control']) }}
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            {{ Form::label('valor', 'Valor', ['class' => 'col-sm-2 col-form-label']) }}
+                            <div class="col-sm-10">
+                                {{ Form::text('valor', $product->valor, ['class' => 'form-control']) }}
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                {{ Form::submit('Salvar', ['class' => 'btn btn-success float-right']) }}
+                            </div>
+                        </div>
 
                     {!! Form::close() !!}
                 </div>

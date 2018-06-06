@@ -20,5 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function() {
     Route::get("/products", "Api\V1\ProductController@index");
+    Route::delete("products/{id}", "Api\V1\ProductController@destroy");
 });
     

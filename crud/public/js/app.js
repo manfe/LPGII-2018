@@ -47329,6 +47329,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47341,8 +47350,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         axios.get('/api/v1/products').then(function (response) {
             _this.products = response.data;
+            _this.products.forEach(function (obj) {
+                obj.exists = true;
+            });
         });
+    },
+
+    methods: {
+        call_delete: function call_delete(product) {
+            var _this2 = this;
+
+            if (!confirm("Tem certeza que deseja deletar o produto: " + product.nome)) {
+                return false;
+            }
+
+            return axios.delete('/api/v1/products/' + product.id).then(function (response) {
+                _this2.products = _this2.products.filter(function (p) {
+                    return p.id !== product.id;
+                });
+            });
+        }
     }
+
 });
 
 /***/ }),
@@ -47362,11 +47391,33 @@ var render = function() {
           _vm._m(0),
           _vm._v(" "),
           _vm._l(_vm.products, function(product) {
-            return _c("tr", { key: product.id }, [
-              _c("td", [_vm._v(_vm._s(product.nome))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(product.valor))])
-            ])
+            return product.exists
+              ? _c("tr", { key: product.id }, [
+                  _c("td", [_vm._v(_vm._s(product.nome))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.valor))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "a",
+                      { attrs: { href: "/products/" + product.id + "/edit" } },
+                      [_c("i", { staticClass: "fa fa-pencil btn btn-warning" })]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.call_delete(product)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fa fa-trash btn btn-danger" })]
+                    )
+                  ])
+                ])
+              : _vm._e()
           })
         ],
         2
